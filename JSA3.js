@@ -4,6 +4,19 @@
 // 2 3
 // 4 5 6
 // 7 8 9 10
+const printPattern = (num)=>{
+    let n = 0
+    for(let i=1;i<=4;i++)
+    {
+        for(let j=1;j<=i;j++)
+        {
+            n+=1;
+            process.stdout.write(`${n} `);
+        }
+        console.log()
+    }
+}
+printPattern();
 
 // 2. Write a program to find whether a given number is armstrong number or
 
@@ -18,6 +31,31 @@
 // (3*3*3)=27
 // So:
 // 1+125+27=153
+
+const armstrongNumber = (num) => {
+    temp = num;
+    sum = 0;
+    while(temp>0)
+    {
+        sum = sum + (Math.floor(temp%10))**3;
+        temp = Math.floor(temp/10);
+    }
+    if(sum===num)
+    {
+        console.log(`${num} is Armstrong Number`);
+    }
+    else{
+        console.log(`${num} is not Armstrong Number`);
+    }
+}
+armstrongNumber(407);
+armstrongNumber(489);
+
+
+
+
+
+
 // 3. Write a program to find whether a given number is special number or
 
 // not-
@@ -25,4 +63,33 @@
 
 // number itself, the number (N) is called a special number.
 // eg- 145 is a special number
-// Logic- 1! + 4! + 5!= 1+24+120 i.e 14
+// Logic- 1! + 4! + 5!= 1+24+120 i.e 145
+
+const specialNumber = (num) => {
+    temp = num;
+    sum = 0;
+    const factorial = (n)=>{
+        let fact = 1;
+        while(n){
+            fact *= n;
+            n--;
+        }
+        return fact;
+    }
+
+    while(temp>0)
+    {
+        sum = sum + factorial(Math.floor(temp%10));
+        temp = Math.floor(temp/10);
+    }
+    if(sum===num)
+    {
+        console.log(`${num} is Special Number`);
+    }
+    else{
+        console.log(`${num} is not Special Number`);
+    }
+}
+
+specialNumber(145);
+specialNumber(234);
